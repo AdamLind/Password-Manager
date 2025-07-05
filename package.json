@@ -1,0 +1,27 @@
+{
+  "name": "project-1",
+  "version": "1.0.0",
+  "description": "First Project",
+  "homepage": "https://github.com/AdamLind/cse341-project1#readme",
+  "bugs": {
+    "url": "https://github.com/AdamLind/cse341-project1/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdamLind/cse341-project1.git"
+  },
+  "license": "MIT",
+  "author": "Adam Lind",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.0.1",
+    "express": "^5.1.0",
+    "mongodb": "^6.17.0",
+    "nodemon": "^3.1.10"
+  }
+}
