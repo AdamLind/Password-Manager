@@ -1,0 +1,12 @@
+# Get all contacts
+GET https://cse341-project1-2mtq.onrender.com/contacts
+
+
+### Get contact by ID 1
+GET https://cse341-project1-2mtq.onrender.com/contacts/68698e968fb9d6701c1696d2
+
+### Get contact by ID 2
+GET https://cse341-project1-2mtq.onrender.com/contacts/68698f648fb9d6701c1696d3
+
+### Get contact by ID 3
+GET https://cse341-project1-2mtq.onrender.com/contacts/68698f818fb9d6701c1696d4
