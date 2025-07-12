@@ -1,7 +1,10 @@
 const router = require('express').Router();
 
+router.use("/", require("./swagger"));
+
 router.get('/', (req, res) => {
-  res.send('Hello, World! Navigate to /contacts to see the contacts API. You can also use /contacts/:id to get a specific contact by ID.');
+  // # swagger.tags = ["Hello World!"];
+  res.send('Hello World');
 });
 
 router.use('/contacts', require('./contacts'));

@@ -1,12 +1,77 @@
-# Get all contacts
+# Get all contacts (Production)
 GET https://cse341-project1-2mtq.onrender.com/contacts
 
+### Get all contacts (Local)
+GET http://localhost:8080/contacts
 
-### Get contact by ID 1
+### Get contact by ID 1 (Production)
 GET https://cse341-project1-2mtq.onrender.com/contacts/68698e968fb9d6701c1696d2
 
-### Get contact by ID 2
+### Get contact by ID 1 (Local)
+GET http://localhost:8080/contacts/68698e968fb9d6701c1696d2
+
+### Get contact by ID 2 (Production)
 GET https://cse341-project1-2mtq.onrender.com/contacts/68698f648fb9d6701c1696d3
 
-### Get contact by ID 3
+### Get contact by ID 2 (Local)
+GET http://localhost:8080/contacts/68698f648fb9d6701c1696d3
+
+### Get contact by ID 3 (Production)
 GET https://cse341-project1-2mtq.onrender.com/contacts/68698f818fb9d6701c1696d4
+
+### Get contact by ID 3 (Local)
+GET http://localhost:8080/contacts/68698f818fb9d6701c1696d4
+
+### Create a new contact (Production)
+POST https://cse341-project1-2mtq.onrender.com/contacts
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe@example.com",
+  "favoriteColor": "pink",
+  "birthday": "1991-12-24"
+}
+
+### Create a new contact (Local)
+POST http://localhost:8080/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Smith",
+  "email": "jane.smith@example.com",
+  "favoriteColor": "blue",
+  "birthday": "1985-06-15"
+}
+
+### Update contact by ID 1 (Production)
+PUT https://cse341-project1-2mtq.onrender.com/contacts/68729ed1762ab2a3e66bf6f2
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe@example.com",
+  "favoriteColor": "pink",
+  "birthday": "1991-12-24"
+}
+
+### Update contact by ID 1 (Local)
+PUT http://localhost:8080/contacts/68729ed1762ab2a3e66bf6f2
+Content-Type: application/json
+
+{
+  "firstName": "Johnathan",
+  "lastName": "Doehicky",
+  "email": "john.doe@example.com",
+  "favoriteColor": "brown",
+  "birthday": "1992-12-24"
+}
+
+### Delete contact by ID 1 (Production)
+DELETE https://cse341-project1-2mtq.onrender.com/contacts/<contact_id>
+
+### Delete contact by ID 1 (Local)
+DELETE http://localhost:8080/contacts/<contact_id>

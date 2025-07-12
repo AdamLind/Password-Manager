@@ -1,20 +1,34 @@
-const express = require('express');
+const express = require("express");
 
-const mongodb = require('./db/mongodb');
+const mongodb = require("./db/mongodb");
 const app = express();
 
 const port = process.env.PORT || 3000;
 
-app.use('/', require('./routes'));
+// Middleware to parse JSON request bodies
+app.use(express.json());
 
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Z-Key"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, OPTIONS"
+  );
+  next();
+});
 
+app.use("/", require("./routes"));
 
 mongodb.initDb((err) => {
-    if (err) {
-        console.error('Failed to connect to MongoDB:', err);
-        process.exit(1);
-    }
-    console.log('Connected to MongoDB');
+  if (err) {
+    console.error("Failed to connect to MongoDB:", err);
+    process.exit(1);
+  }
+  console.log("Connected to MongoDB");
 });
 
 app.listen(port, () => {
