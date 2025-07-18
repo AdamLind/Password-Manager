@@ -15,7 +15,6 @@ const getAllContacts = async (req, res) => {
        description: 'Internal server error'
      }
   */
-  console.log("Fetching all contacts from the database");
   const db = mongodb.getDb();
   try {
     const contacts = await db.collection("contacts").find().toArray();
@@ -83,13 +82,6 @@ const createContact = async (req, res) => {
      }
   */
   const newContact = req.body;
-
-  // Validate that request body exists and is not empty
-  if (!newContact || Object.keys(newContact).length === 0) {
-    return res
-      .status(400)
-      .json({ error: "Request body is required and cannot be empty" });
-  }
 
   const db = mongodb.getDb();
   try {

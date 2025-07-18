@@ -1,32 +1,36 @@
+const { body, validationResult } = require("express-validator");
+
+const contactValidationRules = [
+  body("firstName").notEmpty().withMessage("First name is required"),
+  body("lastName").notEmpty().withMessage("Last name is required"),
+  body("email")
+    .notEmpty()
+    .trim()
+    .normalizeEmail()
+    .isEmail()
+    .withMessage("Email must be a valid email address"),
+  body("favoriteColor").notEmpty().withMessage("Favorite color is required"),
+  body("birthday")
+    .notEmpty()
+    .withMessage("Birthday is required")
+    .isDate()
+    .withMessage("Birthday must be a valid date"),
+];
+
 const validateContactData = (req, res, next) => {
-  const newContact = req.body;
-
-  // Check if the request body is empty
-  if (!newContact || Object.keys(newContact).length === 0) {
-    return res
-      .status(400)
-      .json({ error: "Request body is required and cannot be empty" });
+  const errors = validationResult(req);
+  if (errors.isEmpty()) {
+    return next();
   }
-
-  // Validate required fields
-  const requiredFields = [
-    "firstName",
-    "lastName",
-    "email",
-    "favoriteColor",
-    "birthday",
-  ];
-  for (const field of requiredFields) {
-    if (!newContact[field]) {
-      return res.status(400).json({ error: `${field} is required` });
-    }
-  }
-
-  // Additional validation can be added here
-
-  next();
+  const extractedErrors = errors
+    .array()
+    .map((err) => ({ [err.param]: err.msg }));
+  return res.status(422).json({
+    errors: extractedErrors,
+  });
 };
 
 module.exports = {
+  contactValidationRules,
   validateContactData,
 };
