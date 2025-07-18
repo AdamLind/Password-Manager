@@ -22,9 +22,22 @@ const validateContactData = (req, res, next) => {
   if (errors.isEmpty()) {
     return next();
   }
-  const extractedErrors = errors
-    .array()
-    .map((err) => ({ [err.param]: err.msg }));
+
+  console.log(
+    "Raw validation errors:",
+    JSON.stringify(errors.array(), null, 2)
+  );
+
+  const extractedErrors = errors.array().map((err) => {
+    console.log("Processing error:", err);
+    return {
+      field: err.path || err.param || err.location || "unknown",
+      message: err.msg,
+    };
+  });
+
+  console.log("Extracted errors:", extractedErrors);
+
   return res.status(422).json({
     errors: extractedErrors,
   });

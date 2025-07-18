@@ -9,13 +9,14 @@ router.get("/:id", Util.handleErrors(contactsController.getContactById));
 
 router.post(
   "/",
-  contactsValidate.contactValidationRules,
+  ...contactsValidate.contactValidationRules,
   contactsValidate.validateContactData,
   Util.handleErrors(contactsController.createContact)
 );
 
 router.put(
   "/:id",
+  ...contactsValidate.contactValidationRules,
   contactsValidate.validateContactData,
   Util.handleErrors(contactsController.updateContact)
 );

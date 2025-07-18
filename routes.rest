@@ -29,7 +29,7 @@ Content-Type: application/json
 {
   "firstName": "John",
   "lastName": "Doe",
-  "email": "john.doe@example.com",
+  "email": "john.doe@domain.com",
   "favoriteColor": "pink",
   "birthday": "1991-12-24"
 }
@@ -41,7 +41,7 @@ Content-Type: application/json
 {
   "firstName": "Jane",
   "lastName": "Smith",
-  "email": "jane.smith@example.com",
+  "email": "jane.smith@domain.com",
   "favoriteColor": "blue",
   "birthday": "1985-06-15"
 }
