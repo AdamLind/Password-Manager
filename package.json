@@ -1,31 +1,27 @@
 {
-  "name": "project-1",
+  "name": "project-2",
   "version": "1.0.0",
-  "description": "First Project",
-  "homepage": "https://github.com/AdamLind/cse341-project1#readme",
-  "bugs": {
-    "url": "https://github.com/AdamLind/cse341-project1/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AdamLind/cse341-project1.git"
-  },
+  "description": "Simple MVC API with GET and POST endpoints",
   "license": "MIT",
   "author": "Adam Lind",
   "type": "commonjs",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "swagger": "node swagger.js"
+    "dev": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "dotenv": "^17.0.1",
-    "express": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
     "express-validator": "^7.2.1",
     "mongodb": "^6.17.0",
-    "nodemon": "^3.1.10",
+    "mongoose": "^7.5.0",
     "swagger-autogen": "^2.23.7",
     "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }

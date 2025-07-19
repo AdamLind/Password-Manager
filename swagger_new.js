@@ -2,8 +2,8 @@ const swaggerAutogen = require("swagger-autogen")();
 
 const doc = {
   info: {
-    title: "logins API",
-    description: "API for managing logins",
+    title: "Password Manager API",
+    description: "API for managing logins and personal information",
     version: "1.0.0",
   },
   host: "localhost:8080",

@@ -1,0 +1,37 @@
+[
+  {
+    "website": "example.com",
+    "username": "john.doe@example.com",
+    "password": "bluepickles",
+    "title": "Example Account",
+    "notes": "Birthday: 1990-01-01"
+  },
+  {
+    "website": "example.com",
+    "username": "jane.smith@example.com",
+    "password": "greenpickles",
+    "title": "Example Account",
+    "notes": "Birthday: 1992-02-02"
+  },
+  {
+    "website": "example.com",
+    "username": "crazyalice1123",
+    "password": "purplepickles",
+    "title": "Example Account",
+    "notes": "Birthday: 1995-03-03"
+  },
+  {
+    "website": "example.com",
+    "username": "bob.brown@example.com",
+    "password": "orangepickles",
+    "title": "Example Account",
+    "notes": "Birthday: 1993-04-04"
+  },
+  {
+    "website": "gmail.com",
+    "username": "john.doe@example.com",
+    "password": "securePassword123345",
+    "title": "Gmail Account",
+    "notes": "My main email account"
+  }
+]

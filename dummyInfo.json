@@ -1,0 +1,29 @@
+[
+    {
+        "type": "passport",
+        "number": "encrypted number",
+        "name": "John Doe",
+        "expiryDate": "2030-12-31",
+        "issuingAuthority": "US Dept",
+        "notes": "Renewed 2024",
+        "isActive": true
+    },
+    {
+        "type": "license",
+        "number": "encrypted number",
+        "name": "Jane Smith",
+        "expiryDate": "2025-05-15",
+        "issuingAuthority": "CA Dept",
+        "notes": "Renewed 2023",
+        "isActive": true
+    },
+    {
+        "type": "ssn",
+        "number": "encrypted number",
+        "name": "Alice Johnson",
+        "expiryDate": null,
+        "issuingAuthority": "US Gov",
+        "notes": "N/A",
+        "isActive": true
+    }
+]

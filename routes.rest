@@ -1,29 +1,29 @@
-# Get all contacts (Production)
-GET https://cse341-project1-2mtq.onrender.com/contacts
+# Get all logins (Production)
+GET https://cse341-project1-2mtq.onrender.com/logins
 
-### Get all contacts (Local)
-GET http://localhost:8080/contacts
+### Get all logins (Local)
+GET http://localhost:8080/logins
 
-### Get contact by ID 1 (Production)
-GET https://cse341-project1-2mtq.onrender.com/contacts/68698e968fb9d6701c1696d2
+### Get login by ID 1 (Production)
+GET https://cse341-project1-2mtq.onrender.com/logins/68698e968fb9d6701c1696d2
 
-### Get contact by ID 1 (Local)
-GET http://localhost:8080/contacts/68698e968fb9d6701c1696d2
+### Get login by ID 1 (Local)
+GET http://localhost:8080/logins/68698e968fb9d6701c1696d2
 
-### Get contact by ID 2 (Production)
-GET https://cse341-project1-2mtq.onrender.com/contacts/68698f648fb9d6701c1696d3
+### Get login by ID 2 (Production)
+GET https://cse341-project1-2mtq.onrender.com/logins/68698f648fb9d6701c1696d3
 
-### Get contact by ID 2 (Local)
-GET http://localhost:8080/contacts/68698f648fb9d6701c1696d3
+### Get login by ID 2 (Local)
+GET http://localhost:8080/logins/68698f648fb9d6701c1696d3
 
-### Get contact by ID 3 (Production)
-GET https://cse341-project1-2mtq.onrender.com/contacts/68698f818fb9d6701c1696d4
+### Get login by ID 3 (Production)
+GET https://cse341-project1-2mtq.onrender.com/logins/68698f818fb9d6701c1696d4
 
-### Get contact by ID 3 (Local)
-GET http://localhost:8080/contacts/68698f818fb9d6701c1696d4
+### Get login by ID 3 (Local)
+GET http://localhost:8080/logins/68698f818fb9d6701c1696d4
 
-### Create a new contact (Production)
-POST https://cse341-project1-2mtq.onrender.com/contacts
+### Create a new login (Production)
+POST https://cse341-project1-2mtq.onrender.com/logins
 Content-Type: application/json
 
 {
@@ -34,8 +34,8 @@ Content-Type: application/json
   "birthday": "1991-12-24"
 }
 
-### Create a new contact (Local)
-POST http://localhost:8080/contacts
+### Create a new login (Local)
+POST http://localhost:8080/logins
 Content-Type: application/json
 
 {
@@ -46,8 +46,8 @@ Content-Type: application/json
   "birthday": "1985-06-15"
 }
 
-### Update contact by ID 1 (Production)
-PUT https://cse341-project1-2mtq.onrender.com/contacts/68729ed1762ab2a3e66bf6f2
+### Update login by ID 1 (Production)
+PUT https://cse341-project1-2mtq.onrender.com/logins/68729ed1762ab2a3e66bf6f2
 Content-Type: application/json
 
 {
@@ -58,8 +58,8 @@ Content-Type: application/json
   "birthday": "1991-12-24"
 }
 
-### Update contact by ID 1 (Local)
-PUT http://localhost:8080/contacts/68729ed1762ab2a3e66bf6f2
+### Update login by ID 1 (Local)
+PUT http://localhost:8080/logins/68729ed1762ab2a3e66bf6f2
 Content-Type: application/json
 
 {
@@ -70,8 +70,8 @@ Content-Type: application/json
   "birthday": "1992-12-24"
 }
 
-### Delete contact by ID 1 (Production)
-DELETE https://cse341-project1-2mtq.onrender.com/contacts/<contact_id>
+### Delete login by ID 1 (Production)
+DELETE https://cse341-project1-2mtq.onrender.com/logins/<login_id>
 
-### Delete contact by ID 1 (Local)
-DELETE http://localhost:8080/contacts/<contact_id>
+### Delete login by ID 1 (Local)
+DELETE http://localhost:8080/logins/<login_id>

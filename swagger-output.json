@@ -1,13 +1,16 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Contacts API",
-    "description": "API for managing contacts",
+    "title": "logins API",
+    "description": "API for managing logins",
     "version": "1.0.0"
   },
-  "host": "cse341-project1-2mtq.onrender.com",
+  "host": "localhost:8080",
   "basePath": "/",
-  "schemes": ["https"],
+  "schemes": [
+    "http",
+    "https"
+  ],
   "paths": {
     "/": {
       "get": {
@@ -19,259 +22,361 @@
         }
       }
     },
-    "/contacts/": {
+    "/api-docs": {
       "get": {
-        "tags": ["Contacts"],
-        "description": "Retrieve all contacts from the database",
-        "produces": ["application/json"],
+        "description": "",
         "responses": {
-          "200": {
-            "description": "Successfully retrieved all contacts",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type": "string",
-                  "example": "array"
-                },
-                "items": {
-                  "$ref": "#/definitions/Contact"
-                }
-              },
-              "xml": {
-                "name": "main"
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error"
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/logins/": {
+      "get": {
+        "tags": [
+          "logins"
+        ],
+        "description": "Get all logins",
+        "responses": {
+          "default": {
+            "description": ""
           }
         }
       },
       "post": {
-        "tags": ["Contacts"],
-        "description": "Create a new contact",
-        "produces": ["application/json"],
+        "tags": [
+          "logins"
+        ],
+        "description": "Create a new login",
         "parameters": [
           {
             "name": "body",
             "in": "body",
-            "description": "Contact data",
+            "description": "login data",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Contact"
+              "$ref": "#/definitions/loginInput"
             }
           }
         ],
         "responses": {
           "201": {
-            "description": "Contact created successfully",
+            "description": "login created successfully",
             "schema": {
-              "$ref": "#/definitions/Contact"
-            }
-          },
-          "400": {
-            "description": "Bad request - invalid input"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/contacts/{id}": {
-      "get": {
-        "tags": ["Contacts"],
-        "description": "Retrieve a specific contact by ID",
-        "produces": ["application/json"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "MongoDB ObjectId of the contact",
-            "example": "507f1f77bcf86cd799439011"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully retrieved the contact",
-            "schema": {
-              "$ref": "#/definitions/Contact"
-            }
-          },
-          "404": {
-            "description": "Contact not found"
-          },
-          "500": {
-            "description": "Internal server error"
-          }
-        }
-      },
-      "put": {
-        "tags": ["Contacts"],
-        "description": "Update an existing contact by ID",
-        "produces": ["application/json"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "MongoDB ObjectId of the contact to update",
-            "example": "507f1f77bcf86cd799439011"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "description": "Updated contact data",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Contact"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Contact updated successfully",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type": "string",
-                  "example": "object"
-                },
-                "properties": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string",
-                          "example": "string"
-                        },
-                        "example": {
-                          "type": "string",
-                          "example": "Contact updated successfully"
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "xml": {
-                "name": "main"
-              }
+              "$ref": "#/definitions/login"
             }
           },
           "400": {
             "description": "Bad Request"
-          },
-          "404": {
-            "description": "Contact not found"
-          },
-          "500": {
-            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/logins/{id}": {
+      "get": {
+        "tags": [
+          "logins"
+        ],
+        "description": "Get a login by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
           }
         }
       },
-      "delete": {
-        "tags": ["Contacts"],
-        "description": "Delete a contact by ID",
-        "produces": ["application/json"],
+      "put": {
+        "tags": [
+          "logins"
+        ],
+        "description": "Update an existing login by ID",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "MongoDB ObjectId of the contact to delete",
-            "example": "507f1f77bcf86cd799439011"
+            "description": "MongoDB ObjectId of the login to update"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Updated login data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/loginInput"
+            }
           }
         ],
         "responses": {
-          "200": {
-            "description": "Contact deleted successfully",
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "logins"
+        ],
+        "description": "Delete a login by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/personal_info/": {
+      "get": {
+        "tags": [
+          "personal_info"
+        ],
+        "description": "Get all personal info",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "personal_info"
+        ],
+        "description": "Create a new personal info entry",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "personal info data",
+            "required": true,
             "schema": {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type": "string",
-                  "example": "object"
-                },
-                "properties": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string",
-                          "example": "string"
-                        },
-                        "example": {
-                          "type": "string",
-                          "example": "Contact deleted successfully"
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "xml": {
-                "name": "main"
-              }
+              "$ref": "#/definitions/personalInfoInput"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "personal info created successfully",
+            "schema": {
+              "$ref": "#/definitions/personalInfo"
             }
           },
-          "404": {
-            "description": "Contact not found"
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/personal_info/{id}": {
+      "get": {
+        "tags": [
+          "personal_info"
+        ],
+        "description": "Get a personal info entry by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "personal_info"
+        ],
+        "description": "Update an existing personal info entry by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "MongoDB ObjectId of the personal info to update"
           },
-          "500": {
-            "description": "Internal server error"
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Updated personal info data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/personalInfoInput"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "personal_info"
+        ],
+        "description": "Delete a personal info entry by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
           }
         }
       }
     }
   },
   "definitions": {
-    "Contact": {
+    "login": {
       "type": "object",
       "properties": {
-        "firstName": {
+        "_id": {
           "type": "string",
-          "description": "Contact's first name",
-          "example": "John"
+          "example": "507f1f77bcf86cd799439011"
         },
-        "lastName": {
+        "website": {
           "type": "string",
-          "description": "Contact's last name",
-          "example": "Doe"
+          "example": "gmail.com"
         },
-        "email": {
+        "username": {
           "type": "string",
-          "description": "Contact's email address",
           "example": "john.doe@example.com"
         },
-        "favoriteColor": {
+        "password": {
           "type": "string",
-          "description": "Contact's favorite color",
-          "example": "blue"
+          "example": "securePassword123"
         },
-        "birthday": {
+        "title": {
           "type": "string",
-          "description": "Contact's birthday in YYYY-MM-DD format",
-          "example": "1990-01-15"
+          "example": "Gmail Account"
+        },
+        "notes": {
+          "type": "string",
+          "example": "My main email account"
         }
-      },
-      "required": [
-        "firstName",
-        "lastName",
-        "email",
-        "favoriteColor",
-        "birthday"
-      ]
+      }
+    },
+    "loginInput": {
+      "type": "object",
+      "properties": {
+        "website": {
+          "type": "string",
+          "example": "gmail.com"
+        },
+        "username": {
+          "type": "string",
+          "example": "john.doe@example.com"
+        },
+        "password": {
+          "type": "string",
+          "example": "securePassword123"
+        },
+        "title": {
+          "type": "string",
+          "example": "Gmail Account"
+        },
+        "notes": {
+          "type": "string",
+          "example": "My main email account"
+        }
+      }
+    },
+    "personalInfo": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string",
+          "example": "507f1f77bcf86cd799439011"
+        },
+        "type": {
+          "type": "string",
+          "example": "passport"
+        },
+        "number": {
+          "type": "string",
+          "example": "AB1234567"
+        },
+        "name": {
+          "type": "string",
+          "example": "John Doe"
+        },
+        "expiryDate": {
+          "type": "string",
+          "example": "2030-12-31"
+        },
+        "issuingAuthority": {
+          "type": "string",
+          "example": "US Department of State"
+        },
+        "notes": {
+          "type": "string",
+          "example": "Renewed in 2024"
+        },
+        "isActive": {
+          "type": "boolean",
+          "example": true
+        }
+      }
+    },
+    "personalInfoInput": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "passport"
+        },
+        "number": {
+          "type": "string",
+          "example": "AB1234567"
+        },
+        "name": {
+          "type": "string",
+          "example": "John Doe"
+        },
+        "expiryDate": {
+          "type": "string",
+          "example": "2030-12-31"
+        },
+        "issuingAuthority": {
+          "type": "string",
+          "example": "US Department of State"
+        },
+        "notes": {
+          "type": "string",
+          "example": "Renewed in 2024"
+        },
+        "isActive": {
+          "type": "boolean",
+          "example": true
+        }
+      }
     }
   }
 }
