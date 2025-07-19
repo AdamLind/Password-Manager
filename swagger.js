@@ -6,7 +6,7 @@ const doc = {
     description: "API for managing logins",
     version: "1.0.0",
   },
-  host: "https://password-manager-ywae.onrender.com/",
+  host: "password-manager-ywae.onrender.com",
   schemes: ["https"],
   definitions: {
     login: {
