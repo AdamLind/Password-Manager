@@ -6,8 +6,8 @@ const doc = {
     description: "API for managing logins",
     version: "1.0.0",
   },
-  host: "localhost:8080",
-  schemes: ["http", "https"],
+  host: "https://password-manager-ywae.onrender.com/",
+  schemes: ["https"],
   definitions: {
     login: {
       _id: "507f1f77bcf86cd799439011",
