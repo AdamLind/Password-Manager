@@ -7,9 +7,7 @@
   },
   "host": "password-manager-ywae.onrender.com",
   "basePath": "/",
-  "schemes": [
-    "https"
-  ],
+  "schemes": ["https"],
   "paths": {
     "/": {
       "get": {
@@ -23,9 +21,7 @@
     },
     "/logins/": {
       "get": {
-        "tags": [
-          "logins"
-        ],
+        "tags": ["logins"],
         "description": "Get all logins",
         "responses": {
           "default": {
@@ -34,9 +30,7 @@
         }
       },
       "post": {
-        "tags": [
-          "logins"
-        ],
+        "tags": ["logins"],
         "description": "Create a new login",
         "parameters": [
           {
@@ -64,9 +58,7 @@
     },
     "/logins/{id}": {
       "get": {
-        "tags": [
-          "logins"
-        ],
+        "tags": ["logins"],
         "description": "Get a login by ID",
         "parameters": [
           {
@@ -83,9 +75,7 @@
         }
       },
       "put": {
-        "tags": [
-          "logins"
-        ],
+        "tags": ["logins"],
         "description": "Update an existing login by ID",
         "parameters": [
           {
@@ -112,9 +102,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "logins"
-        ],
+        "tags": ["logins"],
         "description": "Delete a login by ID",
         "parameters": [
           {
@@ -133,9 +121,7 @@
     },
     "/personal_info/": {
       "get": {
-        "tags": [
-          "personal_info"
-        ],
+        "tags": ["personal_info"],
         "description": "Get all personal info",
         "responses": {
           "default": {
@@ -144,9 +130,7 @@
         }
       },
       "post": {
-        "tags": [
-          "personal_info"
-        ],
+        "tags": ["personal_info"],
         "description": "Create a new personal info entry",
         "parameters": [
           {
@@ -174,9 +158,7 @@
     },
     "/personal_info/{id}": {
       "get": {
-        "tags": [
-          "personal_info"
-        ],
+        "tags": ["personal_info"],
         "description": "Get a personal info entry by ID",
         "parameters": [
           {
@@ -193,9 +175,7 @@
         }
       },
       "put": {
-        "tags": [
-          "personal_info"
-        ],
+        "tags": ["personal_info"],
         "description": "Update an existing personal info entry by ID",
         "parameters": [
           {
@@ -222,9 +202,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "personal_info"
-        ],
+        "tags": ["personal_info"],
         "description": "Delete a personal info entry by ID",
         "parameters": [
           {

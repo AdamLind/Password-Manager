@@ -1,3 +1,5 @@
+const passport = require("passport");
+
 const router = require("express").Router();
 
 router.use("/", require("./swagger"));
@@ -9,6 +11,42 @@ router.get("/", (req, res) => {
 
 router.use("/logins", require("./logins"));
 router.use("/personal_info", require("./personalInfo"));
+
+router.get("/login", passport.authenticate("github", {scope: ["user:email"]}));
+
+router.get("/auth", (req, res) => {
+  res.send(
+    req.session.user !== undefined
+      ? `Logged in as ${req.session.user.username}`
+      : "Logged Out"
+  );
+});
+
+router.get(
+  "/auth/github/callback",
+  passport.authenticate("github", {
+    failureRedirect: "/api-docs",
+  }),
+  (req, res) => {
+    // Successful authentication
+    req.session.user = req.user;
+    res.redirect("/auth");
+  }
+);
+
+router.get("/logout", (req, res) => {
+  req.logout((err) => {
+    if (err) {
+      return res.status(500).json({
+        error: "Logout Error",
+        message: "An error occurred while logging out.",
+        statusCode: 500,
+      });
+    }
+    req.session.destroy();
+    res.redirect("/");
+  });
+});
 
 // 404 Handler - Must be last route
 router.use("*", (req, res) => {

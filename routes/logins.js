@@ -4,11 +4,14 @@ const Util = require("../utilities/utilities");
 const loginsValidate = require("../validators/logins");
 const loginsController = require("../controllers/logins");
 
+const isAuthenticated = require("../authentication/authenticate");
+
 router.get(
   "/",
   /* #swagger.tags = ['logins']
      #swagger.description = 'Get all logins'
   */
+  isAuthenticated,
   Util.handleErrors(loginsController.getAllLogins)
 );
 
@@ -17,6 +20,7 @@ router.get(
   /* #swagger.tags = ['logins']
      #swagger.description = 'Get a login by ID'
   */
+  isAuthenticated,
   Util.handleErrors(loginsController.getLoginById)
 );
 
@@ -35,6 +39,7 @@ router.post(
        schema: { $ref: '#/definitions/login' }
      }
   */
+  isAuthenticated,
   ...loginsValidate.loginValidationRules,
   loginsValidate.validateLoginData,
   Util.handleErrors(loginsController.createLogin)
@@ -57,6 +62,7 @@ router.put(
        schema: { $ref: '#/definitions/loginInput' }
      }
   */
+  isAuthenticated,
   ...loginsValidate.loginValidationRules,
   loginsValidate.validateLoginData,
   Util.handleErrors(loginsController.updateLogin)
@@ -67,6 +73,7 @@ router.delete(
   /* #swagger.tags = ['logins']
      #swagger.description = 'Delete a login by ID'
   */
+  isAuthenticated,
   Util.handleErrors(loginsController.deleteLogin)
 );
 
